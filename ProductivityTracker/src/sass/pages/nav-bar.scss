@@ -1,0 +1,41 @@
+#nav-grid {
+  display: grid;
+
+  #logo {
+    font-family: 'Indie Flower', cursive;
+    font-size: clamp(1rem, 1.2rem, 3rem);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 5vh;
+  }
+}
+
+
+#nav-bar {
+  position: absolute;
+  width: clamp(100px, 20%, 25%);
+  height: 95vh;
+  background-color: #03312E;
+  color: #fff;
+
+  #nav-list {
+    padding: 1rem 0rem;
+    margin: auto;
+
+
+    .nav-list-item {
+      font-family: 'Indie Flower', cursive;
+      font-size: clamp(1rem, 1.5rem, 2rem);
+      text-align: center;
+      line-height: 3rem;
+      cursor: pointer;
+      margin: 1rem 0rem;
+    }
+  }
+  
+
+}
+

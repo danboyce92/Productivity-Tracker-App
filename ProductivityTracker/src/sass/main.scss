@@ -1,0 +1,19 @@
+@import '../sass/helpers/_mixins';
+
+@import './pages/nav-bar.scss';
+
+.fonts {
+  font-family: 'Agdasima', sans-serif;
+  font-family: 'Bacasime Antique', serif;
+  font-family: 'Indie Flower', cursive;
+  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+.coolors {
+  color: #03312E;
+  color: #5998C5;
+  color: #0CAADC;
+  color: #D9D9D9;
+  color: #CFFFB0;
+}
