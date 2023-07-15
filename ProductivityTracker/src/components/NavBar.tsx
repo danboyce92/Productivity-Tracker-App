@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 
 import { useAppSelector, useAppDispatch } from "../store/hooks";
 import { changeToO, changeToE, changeToS } from "../store";
@@ -48,9 +49,9 @@ const NavBar = () => {
       </div>
       <div id="nav-bar">
         <ul id="nav-list">
-          <li id="nav-list-item" className={o ? 'text-[#FFF689]' : ''} onClick={changeO}>Activities</li>
-          <li id="nav-list-item" className={e ? 'text-[#FFF689]' : ''} onClick={changeE}>Activities Input</li>
-          <li id="nav-list-item" className={s ? 'text-[#FFF689]' : ''} onClick={changeS}>Activities Edit</li>
+          <li id="nav-list-item" className={o ? 'text-[#FFF689]' : ''} onClick={changeO}><Link to="/">Activities</Link></li>
+          <li id="nav-list-item" className={e ? 'text-[#FFF689]' : ''} onClick={changeE}><Link to="input">Activities Input</Link></li>
+          <li id="nav-list-item" className={s ? 'text-[#FFF689]' : ''} onClick={changeS}><Link to="edit">Activities Edit</Link></li>
         </ul>
       </div>
 
