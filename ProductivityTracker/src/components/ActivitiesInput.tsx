@@ -1,6 +1,6 @@
 import DropdownActivity from "./DropdownActivity";
 import DropdownTime from "./DropdownTime";
-
+ 
 
 const ActivitiesInput = () => {
   return (

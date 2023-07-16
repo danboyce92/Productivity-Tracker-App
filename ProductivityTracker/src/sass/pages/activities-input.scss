@@ -8,6 +8,7 @@
   border-radius: 1rem;
   inset: 2rem;
   display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 
   #activities-input-title {
     @include grid-position(1, 5, 1, 2);
@@ -19,7 +20,7 @@
   }
 
   #activities-input-display {
-    @include grid-position(1, 5, 2, 7);
+    @include grid-position(1, 5, 2, 8);
     border-radius: 1rem;
     margin-left: 2.5rem;
     margin-right: 2.5rem;
@@ -30,7 +31,7 @@
     #activity-dropdown {
       @include grid-position(1, 2, 2, 3);
       font-family: 'Josefin Sans', sans-serif;
-      font-size: clamp(2em, 2.5em, 3em);
+      font-size: clamp(1.5em, 1.8em, 2.5em);
       border-radius: 5px;
       box-shadow: 1px 2px rgba(0, 0, 0, .3);
       margin: auto;
@@ -40,7 +41,7 @@
     #time-dropdown {
       @include grid-position(2, 3, 2, 3);
       font-family: 'Josefin Sans', sans-serif;
-      font-size: clamp(2em, 2.5em, 3em);
+      font-size: clamp(1.5em, 1.8em, 2.5em);
       border-radius: 5px;
       box-shadow: 1px 2px rgba(0, 0, 0, .3);
       margin: auto;
@@ -55,13 +56,19 @@
       font-family: 'Josefin Sans', sans-serif;
       font-size: clamp(2em, 2.5em, 3em);
       margin: auto;
-      transition: all .5s ease-in-out;
+      transition-property: background-color, translateX, color, box-shadow;
+      transition-duration: 0.5s;
+      transition-timing-function: ease-in-out;
     }
     #record-button:hover {
       color: white;
-      background-color: #9eda77;
-      transform: translateX(5px) translateY(5px);
+      background-color: #a2f46c;
 
+      box-shadow: 2px 3px rgba(255, 255, 255, 0.6);
+
+    }
+    #record-button:active {
+      transform: scale(0.98);
     }
   }
 }
