@@ -142,6 +142,7 @@
 }
 
 .sidebar {
+  
   transition: translate var(--animation-timing);
   translate: -100%;
   padding: 0.5rem 1rem;
@@ -149,8 +150,9 @@
   background-color: rgba(3, 49, 46, .9);
   color: white;
   max-width: 10rem;
-  min-height: 100vh;
+  min-height: 95vh;
   z-index: 3;
+  border-top-right-radius: 1rem;
 }
 
 .hamburger-menu:has(input:checked) + .sidebar {
