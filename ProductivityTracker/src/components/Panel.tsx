@@ -9,7 +9,7 @@ const Panel: FC<PanelProps> = ({ children, className, ...rest }) => {
 const finalClassNames = classNames(
 "border",
 "rounded-md",
-"px-3",
+"px-2.5",
 "shadow",
 "bg-white",
 "py-2",
@@ -19,7 +19,7 @@ className
 );
 
 return (
-<div {...rest} className={finalClassNames}>
+<div id="panel" {...rest} className={finalClassNames}>
 {children}
 </div>
 );
