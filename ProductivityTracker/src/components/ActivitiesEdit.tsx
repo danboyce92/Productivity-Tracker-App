@@ -2,10 +2,14 @@ import { useState } from "react";
 import ToggleButton from "./ToggleButton";
 
 const ActivitiesEdit = () => {
-  const [tJToggle, setTJToggle] = useState(false);
+  const [tJToggleEdit, setTJToggleEdit] = useState(false);
+  const [tJToggleSmall, setTJToggleSmall] = useState(false);
 
-  const onToggle = () => {
-    setTJToggle(!tJToggle);
+  const onToggleEdit = () => {
+    setTJToggleEdit(!tJToggleEdit);
+  }
+  const onToggleSmall = () => {
+    setTJToggleSmall(!tJToggleSmall);
   }
 
   const list = ["Typescript", "Italian", "Keyboard", "Java"];
@@ -23,10 +27,11 @@ const ActivitiesEdit = () => {
   return(
     <div id="activities-edit">
       <div id="activities-edit-title">Activities Edit</div>
+        <div id="small-toggle"><ToggleButton onToggle={onToggleSmall} left="List" right="Edit" id="sm-tg" /></div>
         <div id="edit-container">
           <div id="add-activities">
             <div id="add-edit-title">Add/Edit Activities</div>
-            <div id="toggle-button"><ToggleButton onToggle={onToggle} /></div>
+            <div id="toggle-button"><ToggleButton onToggle={onToggleEdit} left="Add" right="Edit" id="ad-tg" /></div>
             <input id="name-input" type="text" placeholder="Activity..." />
             <input id="category-input" type="text" placeholder="Category..." />
             <button id="save-button">Save Activity</button>
