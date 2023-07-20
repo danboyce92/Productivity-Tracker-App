@@ -1,7 +1,7 @@
 
 
 
-@media only screen and (min-width: 601px) {
+@media only screen and (min-width: 950px) {
 
 
   #activities-edit {
@@ -40,7 +40,7 @@
       #add-activities {
         @include grid-position(1, 2, 1, 2);
         @include internal-box();
-        margin-right: 4rem;
+        margin-right: 1rem;
         display: grid;
         grid-template-rows: repeat(5, 1fr);
   
@@ -87,7 +87,7 @@
         @include grid-position(2, 3, 1, 2);
         @include internal-box();
         border-radius: 1rem;
-        margin-left: 4rem;
+        margin-left: 1rem;
         display: grid;
         grid-template-rows: repeat(5, 1fr);
         overflow-y: hidden;
@@ -135,7 +135,7 @@
 
 
 //Small screen
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 949px) {
 
   #activities-edit {
     position: absolute;
