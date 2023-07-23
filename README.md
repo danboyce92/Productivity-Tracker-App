@@ -25,3 +25,13 @@ Delete Button on Activities List needs wiring up.
 **Make it responsive**
 Hamburger menu for Navbar.
 See if there's a way to make a font's size be calculated by the width of it's own div.
+
+**Problem I have encountered**
+Regarding data structuring..
+I want to use a stacked bar chart to display the following.
+X axis - Each individual day of a specific week.
+Y axis - A stack of the various activities recorded.
+
+The problem is that any of the stacked barcharts I've seen create each stack from an individual object and that's not the way the app will store data. Data from this app will most likely have an individual object being an individual input (Actvitiy record).
+
+This might be resolved by exploring SQL databases, there might be a way to have SQL automatically render and represent data in different ways.
