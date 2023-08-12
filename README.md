@@ -48,6 +48,8 @@ Also on the activities edit page,
   If it doesn't just add it as new.
 - Last part for edit page. When you hover an activity it should reveal the given category.
 
+_One thing to keep in mind. Everytime the 'database' is changed I want the page to refresh. For example if an activity is deleted from the list I want it to update so you can see it removed immediately._
+
 Activities input page
 
 - Right now this page is detecting static activities.
