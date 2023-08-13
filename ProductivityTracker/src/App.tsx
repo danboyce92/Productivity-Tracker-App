@@ -38,7 +38,7 @@ function App() {
     <div id="main-screen">
     <Routes>
     <Route path="/" element={ < Activities/>} />
-    <Route path="input" element={ < ActivitiesInput/>} />
+    <Route path="input" element={ < ActivitiesInput activityObject={activityListArray} />} />
     <Route path="edit" element={ < ActivitiesEdit activityObject={activityListArray} />} />
     </Routes>
     </div>

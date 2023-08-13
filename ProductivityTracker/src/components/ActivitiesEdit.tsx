@@ -49,6 +49,8 @@ const ActivitiesEdit: React.FC<ChildProps> = ({ activityObject }) => {
         "Content-Type": "application/json",
       },
     })
+    const newActivity = await response.json();
+    console.log(`New activity added: ${newActivity}`)
     setActivityName('');
     setActivityCategory('');
     
