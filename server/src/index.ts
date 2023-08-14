@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import { config } from 'dotenv';
 import cors from 'cors';
 import ActivityList from './models/Activities';
+import Record from './models/Record';
 
 import { listOfActivities } from './data';
 import bodyParser from 'body-parser';
@@ -31,6 +32,12 @@ app.get('/activities', async (req: Request, res: Response, next: NextFunction) =
   next();
 });
 
+app.get('/records', async (req: Request, res: Response, next: NextFunction) => {
+  const records = await Record.find();
+  res.json(records);
+  next();
+})
+
 //In my request from front end. Object with name and category keys must be used
 app.post("/newactivity", async (req: Request, res: Response, next: NextFunction) => {
   const newActivity = new ActivityList({
@@ -40,6 +47,24 @@ app.post("/newactivity", async (req: Request, res: Response, next: NextFunction)
   const createdActivity = await newActivity.save();
   res.json(createdActivity);
 });
+
+app.post('/newrecord', async (req: Request, res: Response, next: NextFunction) => {
+  const newRecord = new Record({
+    name: req.body.name,
+    category: req.body.category,
+    duration: req.body.duration,
+    date: req.body.date
+  });
+  const createdRecord = await newRecord.save();
+  res.json(createdRecord);
+})
+
+app.delete('/activities/:activityId', async (req: Request, res: Response, next: NextFunction) => {
+  const activityId = req.params.activityId;
+  const activity = await ActivityList.findByIdAndDelete(activityId);
+  res.json(activity);
+})
+
 
 mongoose.connect(process.env.MONGO_URL!)
   .then(() => {

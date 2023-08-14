@@ -37,11 +37,11 @@ The problem is that any of the stacked barcharts I've seen create each stack fro
 This might be resolved by exploring SQL databases, there might be a way to have SQL automatically render and represent data in different ways.
 
 **Latest set of tasks**
-There should be an external place to store the activities available.
-These should be requested when the app opens the activities edit page.
+There should be an external place to store the activities available. ✓
+These should be requested when the app opens the activities edit page. ✓
 Also on the activities edit page,
 
-- you should be able to delete activities from here (send a request to the external list)
+- you should be able to delete activities from here (send a request to the external list) ✓
 - remove the add / edit slider button from the edit part. This should be done automatically.
   have one request sent that will check to see if the activity exists already.
   If it does, update the category, if both fields are the same do nothing and let the user know.
@@ -53,7 +53,7 @@ _One thing to keep in mind. Everytime the 'database' is changed I want the page 
 Activities input page
 
 - Right now this page is detecting static activities.
-  You need to remove them from the component and set it up so they are read from the external source (express).
+  You need to remove them from the component and set it up so they are read from the external source (express). ✓
 - Last thing on this page is to wire up the record activity button.
   When this button is pushed, it should send a post request to the external source
   and save an activity object containing the information desired. (Activity, Duration, Date, Category)

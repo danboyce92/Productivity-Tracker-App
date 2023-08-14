@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import Dropdown from './Dropdown';
+import { Option } from './ActivitiesInput';
 
-
-interface Option {
-  value: string;
-  label: string;
-}
 
 interface ActivityProp {
   _id: string,
@@ -16,19 +12,21 @@ interface ActivityProp {
 
 interface ChildProps {
   activityObject: ActivityProp[];
-  
 }
 
 interface DropdownActivityProps extends ChildProps {
   onActivityChange: (selectedActivity: string) => void;
+  selection: {
+    value: string,
+    label: string,
+  };
+  onSelectChange: (selection: Option) => void;
+  
 }
 
-const DropdownActivity: React.FC<DropdownActivityProps> = ({ activityObject, onActivityChange }) => {
+const DropdownActivity: React.FC<DropdownActivityProps> = ({ activityObject, onActivityChange, selection, onSelectChange }) => {
 
-  const [selection, setSelection] = useState(    {
-    value: "Select Activity",
-    label: 'Select Activity'
-  });
+
 
   const options = activityObject.map((item) => {
     return (
@@ -40,7 +38,7 @@ const DropdownActivity: React.FC<DropdownActivityProps> = ({ activityObject, onA
   })
 
   const handleSelect = (option: Option) => {
-    setSelection(option);
+    onSelectChange(option)
     onActivityChange(option.value);
   };
 

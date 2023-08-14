@@ -1,18 +1,16 @@
 import { useState, useEffect } from "react";
 import ToggleButton from "./ToggleButton";
+import { createActivity } from "../api/createActivity";
+import { Activity } from "../api/GetActivities";
 
-interface ActivityProp {
-  _id: string,
-  name: string,
-  category: string,
-  __v: number
-}
 
 interface ChildProps {
-  activityObject: ActivityProp[];
+  activityObject: Activity[];
+  onCreate: (newActivity: Activity) => void;
+  onDelete: (activityId: string) => void;
 }
 
-const ActivitiesEdit: React.FC<ChildProps> = ({ activityObject }) => {
+const ActivitiesEdit: React.FC<ChildProps> = ({ activityObject, onCreate, onDelete }) => {
   const [tJToggleEdit, setTJToggleEdit] = useState(false);
   const [tJToggleSmall, setTJToggleSmall] = useState(false);
   const [activityName, setActivityName] = useState('');
@@ -26,12 +24,11 @@ const ActivitiesEdit: React.FC<ChildProps> = ({ activityObject }) => {
   }
 
 
-
   const activityMap = activityObject.map((item) => {
     return (
       <div id="map-item" key={item.name}>
         <div id="item-name">{item.name}</div>
-        <div id="item-del">X</div>
+        <div id="item-del" onClick={() => {onDelete(item._id)}} >X</div>
       
       </div>
     )
@@ -39,17 +36,8 @@ const ActivitiesEdit: React.FC<ChildProps> = ({ activityObject }) => {
 
   const saveActivity = async (e: React.FormEvent) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:7000/newactivity", {
-      method: "POST",
-      body: JSON.stringify({
-        name: activityName,
-        category: activityCategory,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-    const newActivity = await response.json();
+    const newActivity = await createActivity(activityName, activityCategory);
+    onCreate(newActivity);
     console.log(`New activity added: ${newActivity}`)
     setActivityName('');
     setActivityCategory('');
