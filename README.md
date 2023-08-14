@@ -65,3 +65,27 @@ Last page / Most important page
   One section displaying what categories are up or down and by how much compared to previous weeks?
 
 After all of that is done I can worry about the actual ui design.
+
+## Things to do now 14/08
+
+Lots of things are wired up to mongo db now, currently the next tasks are:
+
+### Activities Edit
+
+_Remove the add/edit slider button in activities edit_
+
+- This should be removed and in the save activity button you should add logic that checks the following:
+
+* That both input fields are not empty. (If so do not proceed and display a warning to fill fields)
+* That there is not already an activity of the same name in the list. (If so do not proceed and display error explaining why)
+
+_Hover over activity list item_
+
+- Hovering over an activity list item should display the item's category.
+
+### Activities Input
+
+_Record Activity button_
+
+- If either input fields are empty this will not do anything. Display a warning to let the user know this if they record an empty field.
+- When the button is clicked and a record is successfully made, display a short success message to the user
