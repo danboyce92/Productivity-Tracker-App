@@ -39,7 +39,7 @@ app.get('/records', async (req: Request, res: Response, next: NextFunction) => {
 })
 
 //In my request from front end. Object with name and category keys must be used
-app.post("/newactivity", async (req: Request, res: Response, next: NextFunction) => {
+app.post("/newactivity", async (req: Request, res: Response) => {
   const newActivity = new ActivityList({
     name: req.body.name,
     category: req.body.category,
@@ -48,7 +48,7 @@ app.post("/newactivity", async (req: Request, res: Response, next: NextFunction)
   res.json(createdActivity);
 });
 
-app.post('/newrecord', async (req: Request, res: Response, next: NextFunction) => {
+app.post('/newrecord', async (req: Request, res: Response) => {
   const newRecord = new Record({
     name: req.body.name,
     category: req.body.category,
@@ -59,7 +59,7 @@ app.post('/newrecord', async (req: Request, res: Response, next: NextFunction) =
   res.json(createdRecord);
 })
 
-app.delete('/activities/:activityId', async (req: Request, res: Response, next: NextFunction) => {
+app.delete('/activities/:activityId', async (req: Request, res: Response) => {
   const activityId = req.params.activityId;
   const activity = await ActivityList.findByIdAndDelete(activityId);
   res.json(activity);
