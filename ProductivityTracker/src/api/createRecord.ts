@@ -1,6 +1,6 @@
 
 export async function createRecord(name: string, category: string | undefined, duration: number, date: Date) {
-  const response = await fetch("http://localhost:7000/newrecord", {
+  await fetch("http://localhost:7000/newrecord", {
     method: "POST",
     body: JSON.stringify({
       name,

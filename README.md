@@ -89,3 +89,7 @@ _Record Activity button_
 
 - If either input fields are empty this will not do anything. Display a warning to let the user know this if they record an empty field.
 - When the button is clicked and a record is successfully made, display a short success message to the user
+
+### Nav bar
+
+- The nav bar z-index issue needs to be addressed. When the screen is very small, the nav bar blocks access to clicking certain buttons.

@@ -1,7 +1,7 @@
 
 
 
-@media only screen and (min-width: 950px) {
+@media only screen and (min-width: 1000px) {
 
 
   #activities-edit {
@@ -43,6 +43,7 @@
         margin-right: 1rem;
         display: grid;
         grid-template-rows: repeat(5, 1fr);
+        position: relative;
   
         #add-edit-title {
           @include grid-position(1, 2, 1, 2);
@@ -51,14 +52,34 @@
           font-size: clamp(1.5em, 2em, 2.5em);
   
         }
-        #toggle-button {
+        // #toggle-button {
+        //   @include grid-position(1, 2, 2, 3);
+        //   margin: auto;
+        //   font-family: 'Josefin Sans', sans-serif;
+        //   font-size: clamp(1em, 1.3em, 1.5em);
+        //   display: flex;
+        // }
+        #name-input {
           @include grid-position(1, 2, 2, 3);
-          margin: auto;
+          margin: 3rem 3rem;
+          border-radius: 1rem;
+          padding-left: 1rem;
           font-family: 'Josefin Sans', sans-serif;
           font-size: clamp(1em, 1.3em, 1.5em);
-          display: flex;
         }
-        #name-input {
+
+        #activity-error-field-active {
+          @include grid-position(1, 2, 2, 3);
+          color: red;
+          position: absolute;
+          bottom: 10%;
+          left: 15%;
+        }
+        #activity-error-field-inactive {
+          visibility: collapse;
+        }
+
+        #category-input {
           @include grid-position(1, 2, 3, 4);
           margin: 3rem 3rem;
           border-radius: 1rem;
@@ -66,20 +87,37 @@
           font-family: 'Josefin Sans', sans-serif;
           font-size: clamp(1em, 1.3em, 1.5em);
         }
-        #category-input {
-          @include grid-position(1, 2, 4, 5);
-          margin: 3rem 3rem;
-          border-radius: 1rem;
-          padding-left: 1rem;
-          font-family: 'Josefin Sans', sans-serif;
-          font-size: clamp(1em, 1.3em, 1.5em);
+
+        #category-error-field-active {
+          @include grid-position(1, 2, 3, 4);
+          color: red;
+          position: absolute;
+          bottom: 10%;
+          left: 15%;
         }
+
+        #category-error-field-inactive {
+          visibility: collapse;
+        }
+
         #save-button {
+          @include grid-position(1, 2, 4, 5);
           margin: 3rem 2rem;
           box-shadow: 1px 2px rgba(0, 0, 0, 0.3);
           border: 2px solid;
           border-radius: 5px;
           background-color: #CFFFB0;
+          font-size: clamp(1rem, 4vw, 2rem);
+        }
+
+        #activity-exists-error {
+          @include grid-position(1, 2, 5, 6);
+          color:red;
+          font-size: 1.5rem;
+          text-align: center;
+        }
+        #activity-exists-error-inactive {
+          visibility: collapse;
         }
   
       }
@@ -91,7 +129,8 @@
         display: grid;
         grid-template-rows: repeat(5, 1fr);
         overflow-y: hidden;
-  
+
+
         #edit-current-title {
           @include grid-position(1, 2, 1, 2);
           font-family: 'Josefin Sans', sans-serif;
@@ -108,21 +147,45 @@
             text-align: center;
             padding: .8rem 2rem;
             display: flex;
+            flex-wrap: wrap;
             border-bottom: 1px solid #000;
-            
+            position: relative;
           
             #item-name {
               font-size: clamp(1.5em, 2em, 2.5em);
-              margin: auto;
+              margin-right: auto;
+              padding-left: .5rem;
+              cursor: default;
+
             }
+
+            #item-hover {
+              position: absolute;
+              border-radius: 5px;
+              top: 100%;
+              left: 0;
+              width: 100%;
+              opacity: 0;
+              transition: all 0.3s;
+              background-color: #D9D9D9;
+              padding: 3px;
+              z-index: 5;
+              box-sizing: border-box;
+            }
+
             #item-del {
               color: red;
               border: 1px solid black;
-              border-radius: 1rem;
-              padding: 0.1rem .5rem;
+              border-radius: 3px;
+              padding: 0.3rem .5rem;
               margin: auto 0;
+              margin-left: auto;
               cursor: pointer;
             }
+          }
+          #map-item:hover #item-hover {
+            opacity: 1;
+            position: relative;
           }
         }
       }
@@ -135,7 +198,7 @@
 
 
 //Small screen
-@media only screen and (max-width: 949px) {
+@media only screen and (max-width: 999px) {
 
   #activities-edit {
     position: absolute;
@@ -179,6 +242,7 @@
         @include internal-box();
         display: grid;
         grid-template-rows: repeat(5, 1fr);
+        position: relative;
         font-family: 'Josefin Sans', sans-serif;
   
         #add-edit-title {
@@ -188,35 +252,71 @@
           font-size: clamp(1.5em, 1.6em, 2.5em);
   
         }
-        #toggle-button {
-          @include grid-position(1, 2, 2, 3);
-          margin: auto;
 
-          font-size: clamp(1em, 1.3em, 1.5em);
-          display: flex;
-        }
+        // #toggle-button {
+        //   @include grid-position(1, 2, 2, 3);
+        //   margin: auto;
+        //   font-size: clamp(1em, 1.3em, 1.5em);
+        //   display: flex;
+        // }
+
         #name-input {
+          @include grid-position(1, 2, 2, 3);
+          margin: 3rem 3rem;
+          border-radius: 1rem;
+          padding-left: 1rem;
+          font-size: clamp(1em, 1.3em, 1.5em);
+        }
+
+        #activity-error-field-active {
+          @include grid-position(1, 2, 2, 3);
+          color: red;
+          position: absolute;
+          bottom: 10%;
+          left: 15%;
+        }
+        #activity-error-field-inactive {
+          visibility: collapse;
+        }
+
+
+        #category-input {
           @include grid-position(1, 2, 3, 4);
           margin: 3rem 3rem;
           border-radius: 1rem;
           padding-left: 1rem;
-
           font-size: clamp(1em, 1.3em, 1.5em);
         }
-        #category-input {
-          @include grid-position(1, 2, 4, 5);
-          margin: 3rem 3rem;
-          border-radius: 1rem;
-          padding-left: 1rem;
 
-          font-size: clamp(1em, 1.3em, 1.5em);
+        #category-error-field-active {
+          @include grid-position(1, 2, 3, 4);
+          color: red;
+          position: absolute;
+          bottom: 10%;
+          left: 15%;
         }
+
+        #category-error-field-inactive {
+          visibility: collapse;
+        }
+
         #save-button {
+          @include grid-position(1, 2, 4, 5);
           margin: 3rem 2rem;
           box-shadow: 1px 2px rgba(0, 0, 0, 0.3);
           border: 2px solid;
           border-radius: 5px;
           background-color: #CFFFB0;
+        }
+
+        #activity-exists-error {
+          @include grid-position(1, 2, 5, 6);
+          color:red;
+          font-size: 1rem;
+          text-align: center;
+        }
+        #activity-exists-error-inactive {
+          visibility: collapse;
         }
   
       }
@@ -246,21 +346,47 @@
             text-align: center;
             padding: .8rem 2rem;
             display: flex;
+            flex-wrap: wrap;
             border-bottom: 1px solid #000;
+            margin: auto 8px;
+            position: relative;
             
           
             #item-name {
               font-size: clamp(1.5em, 2em, 2.5em);
               margin: auto;
             }
+
+            #item-hover {
+              position: absolute;
+              border-radius: 5px;
+              top: 100%;
+              left: 0;
+              width: 100%;
+              opacity: 0;
+              transition: all 0.3s;
+              background-color: #D9D9D9;
+              padding: 3px;
+              z-index: 5;
+              box-sizing: border-box;
+            }
+
             #item-del {
               color: red;
               border: 1px solid black;
-              border-radius: 1rem;
-              padding: 0.1rem .5rem;
+              border-radius: 3px;
+              padding: 0rem .5rem;
+              padding-top: 0.3rem;
               margin: auto 0;
               cursor: pointer;
+              font-size: 24px;
+              line-height: 24px;
+              
             }
+          }
+          #map-item:hover #item-hover {
+            opacity: 1;
+            position: relative;
           }
         }
         
