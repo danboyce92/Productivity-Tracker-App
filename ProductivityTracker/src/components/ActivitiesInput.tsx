@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import DropdownActivity from "./DropdownActivity";
 import DropdownTime from "./DropdownTime";
-import { Activity } from '../api/GetActivities';
+import { Activity } from '../api/getActivities';
 import { createRecord } from '../api/createRecord';
 
 interface ChildProps {
@@ -25,6 +25,8 @@ const ActivitiesInput: React.FC<ChildProps> = ({ activityObject }) => {
     value: "Select Time",
     label: 'Select Time'
   });
+  const [successMsg, setSuccessMsg] = useState('success-msg-inactive');
+  const [emptyFieldError, setEmptyFieldError] = useState('empty-field-error-inactive');
 
   const handleActivityChange = (selectedActivity: string) => {
     setActivityName(selectedActivity);
@@ -59,11 +61,17 @@ const ActivitiesInput: React.FC<ChildProps> = ({ activityObject }) => {
       const foundActivity = activityObject.find((element) => element.name == activityName);
       await createRecord(activityName, foundActivity?.category, activityTime, now)
 
+      setSuccessMsg('success-msg');
+
       //Need to reset dropdowns after successfully adding
       handleActivityReset();
+      setEmptyFieldError('empty-field-error-inactive');
+      setTimeout(() => {
+        setSuccessMsg('success-msg-inactive');
+      }, 3000);
 
     } else {
-      console.log("Error, you need to enter a value for both activity and time.")
+      setEmptyFieldError('empty-field-error');
     }
   }
 
@@ -74,6 +82,8 @@ const ActivitiesInput: React.FC<ChildProps> = ({ activityObject }) => {
         <div id="activity-dropdown"><DropdownActivity activityObject={activityObject} onActivityChange={handleActivityChange} selection={selection} onSelectChange={triggerSetSelection} /></div>
         <div id="time-dropdown"><DropdownTime onTimeChange={handleTimeChange} timeSelection={timeSelection} onSelectChange={triggerTimeSelection} /></div>
         <button id="record-button">Record Activity</button>
+        <div id={emptyFieldError}>* Please ensure you have chosen an activity and a time.</div>
+      <div id={successMsg}>Activity successfully recorded!</div>
       </form>
     </div>
   )

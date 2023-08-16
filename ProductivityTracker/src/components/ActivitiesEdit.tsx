@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import ToggleButton from "./ToggleButton";
 import { createActivity } from "../api/createActivity";
-import { Activity } from "../api/GetActivities";
+import { Activity } from "../api/getActivities";
 
 
 interface ChildProps {
