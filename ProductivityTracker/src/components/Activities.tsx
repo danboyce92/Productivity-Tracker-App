@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getRecords } from '../api/getRecords';
-
+import { deleteRecord } from '../api/deleteRecord';
 
 interface Record {
   _id: string,
@@ -27,6 +27,11 @@ const Activities = () => {
     console.log(array);
   }
 
+  const deleteCurrentRecord = (recordId: string) => {
+    deleteRecord(recordId);
+    setRecords(records.filter((record) => record._id !== recordId))
+  }
+
   useEffect(() => {
     retrieveRecords();
   },[])
@@ -35,6 +40,7 @@ const Activities = () => {
     return (
       <div className="card" key={record._id}>
         <div className="card-title">{record.name}</div>
+        <div onClick={() => {deleteCurrentRecord(record._id)}} className="card-del">X</div>
         <div className="card-info card-category">{record.category}</div>
         <div className="card-info">{record.duration}</div>
         <div className="card-info">{record.date.toString().slice(0, 10)}</div>   
