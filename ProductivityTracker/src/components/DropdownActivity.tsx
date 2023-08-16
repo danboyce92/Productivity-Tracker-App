@@ -43,7 +43,7 @@ const DropdownActivity: React.FC<DropdownActivityProps> = ({ activityObject, onA
   };
 
   return (
-    <div className='select-none'>
+    <div  className='select-none'>
       <div><Dropdown options={options} value={selection} onChange={handleSelect}></Dropdown></div>
     </div>
   )

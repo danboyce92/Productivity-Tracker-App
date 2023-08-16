@@ -14,7 +14,7 @@ const finalClassNames = classNames(
 "bg-white",
 "py-2",
 "w-fit",
-"z-20",
+"z-50",
 className
 );
 

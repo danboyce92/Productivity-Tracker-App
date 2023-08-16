@@ -5,7 +5,7 @@ import NavBar from './components/NavBar';
 import Activities from './components/Activities';
 import ActivitiesInput from './components/ActivitiesInput';
 import ActivitiesEdit from './components/ActivitiesEdit';
-import { getActivities, Activity } from './api/GetActivities';
+import { getActivities, Activity } from './api/getActivities';
 import { deleteActivity } from './api/deleteActivity';
 
 
