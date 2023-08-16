@@ -43,6 +43,8 @@ const ActivitiesInput: React.FC<ChildProps> = ({ activityObject }) => {
       value: "Select Time",
       label: 'Select Time'
     })
+    setActivityName('');
+    setActivityTime(0);
   }
   const triggerSetSelection = (selection: Option) => {
     setSelection(selection)
