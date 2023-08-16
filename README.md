@@ -72,24 +72,58 @@ Lots of things are wired up to mongo db now, currently the next tasks are:
 
 ### Activities Edit
 
-_Remove the add/edit slider button in activities edit_
+*Remove the add/edit slider button in activities edit*✓
 
-- This should be removed and in the save activity button you should add logic that checks the following:
+- This should be removed and in the save activity button you should add logic that checks the following:✓
 
-* That both input fields are not empty. (If so do not proceed and display a warning to fill fields)
-* That there is not already an activity of the same name in the list. (If so do not proceed and display error explaining why)
+* That both input fields are not empty. (If so do not proceed and display a warning to fill fields)✓
+* That there is not already an activity of the same name in the list. (If so do not proceed and display error explaining why)✓
 
-_Hover over activity list item_
+*Hover over activity list item*✓
 
-- Hovering over an activity list item should display the item's category.
+- Hovering over an activity list item should display the item's category.✓
 
 ### Activities Input
 
 _Record Activity button_
 
 - If either input fields are empty this will not do anything. Display a warning to let the user know this if they record an empty field.
-- When the button is clicked and a record is successfully made, display a short success message to the user
+- When the button is clicked and a record is successfully made, display a short success message to the user✓
 
 ### Nav bar
 
-- The nav bar z-index issue needs to be addressed. When the screen is very small, the nav bar blocks access to clicking certain buttons.
+- The nav bar z-index issue needs to be addressed. When the screen is very small, the nav bar blocks access to clicking certain buttons.✓
+
+## 16/8
+
+Next tasks
+
+### Activities
+
+- introduce flex so when they can fit, multiple activity cards will be on the same line. This should only occur on the larger side. Smaller screen remains one per line.
+
+  Introduce new buttons:
+
+  Button for page to display latest activities added.
+  (Add a delete to the activities card in case of mistakes)
+
+  Button for charts page.
+
+_How will I bring the charts into it?_
+Ok initial plan:
+Have activities page load on chart section.
+Charts will all include the last weeks activities.
+
+_Donut chart:_
+All activities of the week.
+(If you could dive deeper there would be a button beside the chart to separate by category)
+
+_Stacked Bar chart:_
+All activities of the week stacked by category.
+
+_Percentage display:_
+A box dedicated to showing the total duration spent on productive things this week. Displaying a percentage of increase or decrease compared to previous week.
+
+_For now I will leave the activity card delete button as is. But if I want to make it better in the future it would be nicer to have a warning/confirm pop up before the card is fully deleted._
+
+_On the record card I could associate different categories with different colours_
