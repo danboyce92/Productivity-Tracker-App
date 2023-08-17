@@ -3,7 +3,7 @@ import { getRecords } from '../api/getRecords';
 import { deleteRecord } from '../api/deleteRecord';
 
 import LatestActivities from './LatestActivities';
-import Display from './Display';
+import Display from './Display/Display';
 
 export interface Record {
   _id: string,
@@ -49,7 +49,7 @@ const Activities = () => {
       { displayActive &&
       <>
       <button className='activities-button' id="rec-button" onClick={() => {setDisplayActive(!displayActive)}}>Records</button>
-      <Display />     
+      <Display records={records} />     
       </>
 
       }

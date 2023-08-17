@@ -104,10 +104,10 @@ Next tasks
 
   Introduce new buttons:
 
-  Button for page to display latest activities added.
-  (Add a delete to the activities card in case of mistakes)
+  Button for page to display latest activities added. ✓
+  (Add a delete to the activities card in case of mistakes) ✓
 
-  Button for charts page.
+  Button for charts page. ✓
 
 _How will I bring the charts into it?_
 Ok initial plan:
@@ -126,7 +126,7 @@ A box dedicated to showing the total duration spent on productive things this we
 
 _For now I will leave the activity card delete button as is. But if I want to make it better in the future it would be nicer to have a warning/confirm pop up before the card is fully deleted._
 
-_On the record card I could associate different categories with different colours_
+_On the record card I could associate different categories with different colours_ ✓
 
 _Also need to adjust the record cards to display proper time durations not fractions of hours_
 
