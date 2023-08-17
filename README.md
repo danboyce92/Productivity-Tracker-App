@@ -100,7 +100,7 @@ Next tasks
 
 ### Activities
 
-- introduce flex so when they can fit, multiple activity cards will be on the same line. This should only occur on the larger side. Smaller screen remains one per line.
+- introduce flex so when they can fit, multiple activity cards will be on the same line. This should only occur on the larger side. Smaller screen remains one per line. ✓
 
   Introduce new buttons:
 
@@ -127,3 +127,7 @@ A box dedicated to showing the total duration spent on productive things this we
 _For now I will leave the activity card delete button as is. But if I want to make it better in the future it would be nicer to have a warning/confirm pop up before the card is fully deleted._
 
 _On the record card I could associate different categories with different colours_
+
+_Also need to adjust the record cards to display proper time durations not fractions of hours_
+
+_Colors are hard coded to specific categories. Would be nice if I could change it so there's an option for the user to assign colors to whatever categories they want_

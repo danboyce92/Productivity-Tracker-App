@@ -2,7 +2,10 @@ import { useState, useEffect } from 'react';
 import { getRecords } from '../api/getRecords';
 import { deleteRecord } from '../api/deleteRecord';
 
-interface Record {
+import LatestActivities from './LatestActivities';
+import Display from './Display';
+
+export interface Record {
   _id: string,
   name: string,
   category: string,
@@ -13,12 +16,7 @@ interface Record {
 
 const Activities = () => {
   const [records, setRecords] = useState<Record[]>([]);
-
-
-  // export async function getActivities() {
-  //   const response = await fetch("http://localhost:7000/activities")
-  //   return response.json();
-  // }
+  const [displayActive, setDisplayActive] = useState(true);
 
   const retrieveRecords = async () => {
     const array = await getRecords();
@@ -36,27 +34,28 @@ const Activities = () => {
     retrieveRecords();
   },[])
 
-  const recordsMap = records.reverse().map(record => {
-    return (
-      <div className="card" key={record._id}>
-        <div className="card-title">{record.name}</div>
-        <div onClick={() => {deleteCurrentRecord(record._id)}} className="card-del">X</div>
-        <div className="card-info card-category">{record.category}</div>
-        <div className="card-info">{record.duration}</div>
-        <div className="card-info">{record.date.toString().slice(0, 10)}</div>   
-      </div>
-    )
-  })
+
 
   return (
     <div id="activities">
       <div id="activities-title">Activities</div>
-      <div id="activities-display">
-        <div id="current-activities">
-          Latest Activities
-        </div> 
-        <div>{recordsMap}</div>
-      </div>
+      { !displayActive &&
+      <>
+      <button className='activities-button' id="disp-button" onClick={() => {setDisplayActive(!displayActive)}}>Display</button>
+      <LatestActivities records={records} deleteRecord={deleteCurrentRecord} />
+      </>
+      }
+
+      { displayActive &&
+      <>
+      <button className='activities-button' id="rec-button" onClick={() => {setDisplayActive(!displayActive)}}>Records</button>
+      <Display />     
+      </>
+
+      }
+      
+
+
     </div>
   )
 }
