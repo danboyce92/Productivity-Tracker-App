@@ -20,10 +20,10 @@ const Activities = () => {
 
   const retrieveRecords = async () => {
     const array = await getRecords();
+    setRecords(array.reverse());
 
-    setRecords(array);
-    console.log(array);
   }
+
 
   const deleteCurrentRecord = (recordId: string) => {
     deleteRecord(recordId);

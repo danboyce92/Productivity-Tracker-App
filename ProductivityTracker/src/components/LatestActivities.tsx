@@ -10,7 +10,7 @@ const LatestActivities: React.FC<LAProps> = ({ records, deleteRecord }) => {
 
 
 
-  const recordsMap = records.reverse().map(record => {
+  const recordsMap = records.map(record => {
     return (
       <div id="card" className={`border-8 ${colorAssign(record)}`} key={record._id}>
         <div className="card-title">{record.name}</div>

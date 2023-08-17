@@ -65,6 +65,12 @@ app.delete('/activities/:activityId', async (req: Request, res: Response) => {
   res.json(activity);
 })
 
+app.delete('/records/:recordId', async (req: Request, res: Response) => {
+  const recordId = req.params.recordId;
+  const record = await Record.findByIdAndDelete(recordId);
+  res.json(record);
+})
+
 
 mongoose.connect(process.env.MONGO_URL!)
   .then(() => {
