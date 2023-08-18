@@ -16,7 +16,7 @@ function App() {
     const array = await getActivities()
     
     setActivityListArray(array);
-    console.log(array)
+    
   }
 
   useEffect(() => {

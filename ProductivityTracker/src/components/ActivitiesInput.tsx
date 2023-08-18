@@ -57,11 +57,12 @@ const ActivitiesInput: React.FC<ChildProps> = ({ activityObject }) => {
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const now = new Date();
+    const timestamp = now.getTime();
     if (activityName !== '' && activityTime !== 0) {
 
       //look through activityObject and find activityName then extract category
       const foundActivity = activityObject.find((element) => element.name == activityName);
-      await createRecord(activityName, foundActivity?.category, activityTime, now)
+      await createRecord(activityName, foundActivity?.category, activityTime, now, timestamp)
 
       setSuccessMsg('success-msg');
 

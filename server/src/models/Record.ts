@@ -8,6 +8,7 @@ const RecordSchema = new Schema({
   category: String,
   duration: Number,
   date: Date,
+  timestamp: Number,
 });
 
 const RecordModel = mongoose.model('records', RecordSchema);

@@ -11,6 +11,7 @@ export interface Record {
   category: string,
   duration: number,
   date: Date,
+  timestamp: number,
   __v: number,
 }
 
@@ -21,6 +22,7 @@ const Activities = () => {
   const retrieveRecords = async () => {
     const array = await getRecords();
     setRecords(array.reverse());
+
 
   }
 
@@ -39,14 +41,14 @@ const Activities = () => {
   return (
     <div id="activities">
       <div id="activities-title">Activities</div>
-      { !displayActive &&
+      { displayActive &&
       <>
       <button className='activities-button' id="disp-button" onClick={() => {setDisplayActive(!displayActive)}}>Display</button>
       <LatestActivities records={records} deleteRecord={deleteCurrentRecord} />
       </>
       }
 
-      { displayActive &&
+      { !displayActive &&
       <>
       <button className='activities-button' id="rec-button" onClick={() => {setDisplayActive(!displayActive)}}>Records</button>
       <Display records={records} />     

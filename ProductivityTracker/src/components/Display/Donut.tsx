@@ -1,17 +1,15 @@
 import * as d3 from 'd3';
 import { Arc, DefaultArcObject, PieArcDatum } from 'd3-shape';
-import { scaleOrdinal } from 'd3-scale';
-// import { data } from './SampleData';
-// import { dataSet, dataSetSize } from './Data';
 
 import { Record } from '../Activities';
 
-
+interface DurationByCategory {
+  [category: string]: number;
+}
 
 const MARGIN = { TOP: 10, BOTTOM: 10, LEFT: 10, RIGHT: 10 };
 const width = 400 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 300 - MARGIN.TOP - MARGIN.BOTTOM;
-
 
 
 export default class D3 {
@@ -24,6 +22,19 @@ export default class D3 {
       innerRadius: radius * 0.67,
       outerRadius: radius - 1
     }) as string;
+
+    // Calculate the total duration from all activities
+    const totalDurationAllActivities: number = dataSet.reduce(
+      (total: number, activity: Record) => total + activity.duration,
+      0
+    );
+
+    const sortedDataSet = [...dataSet].sort((a, b) => {
+      if (a.category === b.category) {
+        return a.name.localeCompare(b.name); // Sort activities within the same category by name
+      }
+      return a.category.localeCompare(b.category);
+    });
 
     const arc: Arc<any, DefaultArcObject> = d3
       .arc()
@@ -38,35 +49,45 @@ export default class D3 {
 
     const color = d3
       .scaleOrdinal<string>()
-      .domain(dataSet.map((d) => d.name))
+      .domain(sortedDataSet.map((d) => d.name))
       .range(
         d3
           .quantize(
-            (t) => d3.interpolateSpectral(t * .9999 + 0.1),
+            (t) => d3.interpolateSpectral(t / 2 + 0.4),
             dataSet.length
           )
           .reverse()
       );
 
-    const svg = d3
+    const svg: d3.Selection<SVGSVGElement, unknown, null, undefined> = d3
       .select(element)
       .append('svg')
       .attr('width', width)
       .attr('height', height)
-      .attr('viewBox', [-width / 2, -height / 2, width, height])
+      .attr('viewBox', [-width / 2, -height / 2, width, height]) 
       .attr('style', 'max-width: 100%; height: auto;');
 
-    svg
+      svg
       .append('text')
-      .attr('x', width / 2)
-      .attr('y', HEIGHT + 50)
+      .attr('x', 0)
+      .attr('y', 0)
       .attr('text-anchor', 'middle')
-      .text("The world's tallest men");
+      .text('This week')
+      .attr('id', 'center-text');
+
+      svg
+      .append('text')
+      .attr('x', 0)
+      .attr('y', 30)
+      .attr('text-anchor', 'middle')
+      .text(`Total Time: ${totalDurationAllActivities} Hours`)
+      .attr('id', 'center-text');
+
 
     svg
       .append('g')
       .selectAll<SVGPathElement, PieArcDatum<Record>>('path')
-      .data(pie(dataSet))
+      .data(pie(sortedDataSet))
       .join('path')
       //Used to determine sliver's color. Try by category too
       .attr('fill', (d) => color(d.data.category))
@@ -80,7 +101,7 @@ export default class D3 {
       .attr('font-size', 12)
       .attr('text-anchor', 'middle')
       .selectAll()
-      .data(pie(dataSet))
+      .data(pie(sortedDataSet))
       .join('text')
       .attr('transform', (d) => `translate(${arc.centroid(d as any)})`)
       .call((text) =>

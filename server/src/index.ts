@@ -53,7 +53,8 @@ app.post('/newrecord', async (req: Request, res: Response) => {
     name: req.body.name,
     category: req.body.category,
     duration: req.body.duration,
-    date: req.body.date
+    date: req.body.date,
+    timestamp: req.body.timestamp,
   });
   const createdRecord = await newRecord.save();
   res.json(createdRecord);
