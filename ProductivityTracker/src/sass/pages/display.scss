@@ -21,7 +21,8 @@
   }
 
   #bar-disp {
-    @include grid-position(1, 5, 4, 6);
+    @include grid-position(1, 5, 5, 8);
+    margin: auto;
   }
 
 }

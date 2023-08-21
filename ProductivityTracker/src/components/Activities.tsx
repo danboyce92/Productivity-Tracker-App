@@ -4,6 +4,8 @@ import { deleteRecord } from '../api/deleteRecord';
 
 import LatestActivities from './LatestActivities';
 import Display from './Display/Display';
+import { getRecordsP1, getRecordsP2, getRecordsP3, getRecordsP4, getRecordsP5, getRecordsP6, getRecordsP7 } from '../api/getRecordsP1';
+import { StackedData, getLast7DaysDates, searchIndivDay } from './StackedDataHandling';
 
 export interface Record {
   _id: string,
@@ -18,12 +20,34 @@ export interface Record {
 const Activities = () => {
   const [records, setRecords] = useState<Record[]>([]);
   const [displayActive, setDisplayActive] = useState(true);
+  const [datesArr, setDatesArr] = useState<string[]>([]);
+  const [stackedData, setStackedData] = useState<StackedData[]>([]);
 
   const retrieveRecords = async () => {
     const array = await getRecords();
     setRecords(array.reverse());
 
+    const currentDatesArr = getLast7DaysDates();
 
+    const [
+      p1Arr, p2Arr, p3Arr, p4Arr, p5Arr, p6Arr, p7Arr
+    ] = await Promise.all([
+      getRecordsP1(), getRecordsP2(), getRecordsP3(),
+      getRecordsP4(), getRecordsP5(), getRecordsP6(), getRecordsP7()
+    ]);
+
+    const updatedStackedData = [
+      ...stackedData,
+      searchIndivDay(p1Arr, 1),
+      searchIndivDay(p2Arr, 2),
+      searchIndivDay(p3Arr, 3),
+      searchIndivDay(p4Arr, 4),
+      searchIndivDay(p5Arr, 5),
+      searchIndivDay(p6Arr, 6),
+      searchIndivDay(p7Arr, 7),
+    ];
+
+    setStackedData(updatedStackedData);
   }
 
 
@@ -33,9 +57,16 @@ const Activities = () => {
   }
 
   useEffect(() => {
-    retrieveRecords();
-  },[])
+    setDatesArr(getLast7DaysDates());
+  }, []);
 
+  useEffect(() => {
+    retrieveRecords();
+  }, [datesArr]);
+
+  useEffect(() => {
+    console.log(stackedData);
+  }, [stackedData.length]);
 
 
   return (
@@ -51,7 +82,7 @@ const Activities = () => {
       { !displayActive &&
       <>
       <button className='activities-button' id="rec-button" onClick={() => {setDisplayActive(!displayActive)}}>Records</button>
-      <Display records={records} />     
+      <Display records={records} stackedD={stackedData} />     
       </>
 
       }

@@ -1,8 +1,11 @@
 import { useEffect, useRef } from 'react';
-import { DProps } from './Display';
+
 import Donut from './Donut';
+import { Record } from '../Activities';
 
-
+interface DProps {
+  records: Record[];
+}
 
 const ChartWrapper: React.FC<DProps> = ({ records }) => {
   const chartRef = useRef<HTMLDivElement | null>(null);

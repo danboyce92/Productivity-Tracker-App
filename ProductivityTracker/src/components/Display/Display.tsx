@@ -1,13 +1,16 @@
 import { useState, useEffect } from 'react';
 import DonutWrapper from './DonutWrapper';
 import { Record } from '../Activities';
+import StackedWrapper from './StackedWrapper';
+import { StackedData } from '../StackedDataHandling';
 
 
 export interface DProps {
-  records: Record[]
+  records: Record[];
+  stackedD: StackedData[];
 }
 
-const Display: React.FC<DProps> = ({ records }) => {
+const Display: React.FC<DProps> = ({ records, stackedD }) => {
   const [thisWeekRecords, setThisWeekRecords] = useState<Record[]>([]);
 
   const calculateLastWeek = () => {
@@ -16,6 +19,10 @@ const Display: React.FC<DProps> = ({ records }) => {
   
     return records.filter(record => record.timestamp > lastWeek);
   }
+
+
+
+
 
   useEffect(() => {
     const filteredRecords = calculateLastWeek();
@@ -27,7 +34,7 @@ const Display: React.FC<DProps> = ({ records }) => {
     <div id="display-container">
       <div id="percent-disp">Percentage display</div>
       <div id="donut-disp"><DonutWrapper records={thisWeekRecords} /></div>
-      <div id="bar-disp">Bar Chart</div>
+      <div id="bar-disp"><StackedWrapper stackedD={stackedD} /></div>
     </div>
   )
 }
