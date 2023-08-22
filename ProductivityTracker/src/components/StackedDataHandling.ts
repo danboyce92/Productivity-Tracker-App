@@ -34,7 +34,7 @@ export function getLast7DaysDates(): string[] {
     
     let dayObject: StackedData = {
       // day: date,
-      daysAgo: date,
+      daysAgo: date || 0,
       programming: 0,
       music: 0,
       language: 0,

@@ -38,13 +38,13 @@ const Activities = () => {
 
     const updatedStackedData = [
       ...stackedData,
-      searchIndivDay(p1Arr, 1),
-      searchIndivDay(p2Arr, 2),
-      searchIndivDay(p3Arr, 3),
+      searchIndivDay(p1Arr, 7),
+      searchIndivDay(p2Arr, 6),
+      searchIndivDay(p3Arr, 5),
       searchIndivDay(p4Arr, 4),
-      searchIndivDay(p5Arr, 5),
-      searchIndivDay(p6Arr, 6),
-      searchIndivDay(p7Arr, 7),
+      searchIndivDay(p5Arr, 3),
+      searchIndivDay(p6Arr, 2),
+      searchIndivDay(p7Arr, 1),
     ];
 
     setStackedData(updatedStackedData);

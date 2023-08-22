@@ -9,16 +9,16 @@ export interface EmojiColors {
   [fruit: string]: string;
 }
 
-export interface EmojiItem {
+interface EmojiItem {
   [index: number]: string,
 }
 
-export interface Statistic {
-  year: number,
-  avocado: number,
-  banana: number,
-  aubergine: number,
-}
+//  interface Statistic {
+//   year: number,
+//   avocado: number,
+//   banana: number,
+//   aubergine: number,
+// }
 
 export interface DailyCategory {
   day: string,
@@ -77,12 +77,14 @@ interface SProps {
 //   },
 // ];
 
-const allKeys = ['avocado', 'banana', 'aubergine'];
+const allKeys = ['programming', 'music', 'language', 'exercise', ];
 
 const colors: EmojiColors = {
-  avocado: 'green',
-  banana: 'orange',
-  aubergine: 'purple',
+  programming: 'purple',
+  music: 'lime',
+  language: 'yellow',
+  exercise: 'red',
+  
 };
 
 const StackedWrapper: React.FC<SProps> = ({ stackedD }) => {
@@ -107,7 +109,7 @@ const StackedWrapper: React.FC<SProps> = ({ stackedD }) => {
                 }
               }}
             />
-            <label htmlFor={key} style={{ color: colors[key] }}>
+            <label className="" htmlFor={key} style={{ color: colors[key] }}>
               {key}
             </label>
           </div>

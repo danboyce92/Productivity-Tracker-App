@@ -48,6 +48,8 @@ const StackedBarChart: React.FC<StackedProps> = ({ data, keys, colors }) => {
       }, {} as Record<string, number>)
     }));
 
+    console.log(transformedData)
+
     // Use the transformedData for stacking
     const stackGeneratorInstance = stack().keys(keys).order(stackOrderAscending);
     const layers = stackGeneratorInstance(transformedData);
@@ -69,6 +71,7 @@ const StackedBarChart: React.FC<StackedProps> = ({ data, keys, colors }) => {
 
     const yScale = scaleLinear().domain(extent).range([height, 0]);
 
+
     // rendering
     svg
       .selectAll('.layer')
@@ -79,12 +82,14 @@ const StackedBarChart: React.FC<StackedProps> = ({ data, keys, colors }) => {
       .selectAll('rect')
       .data((layer) => layer)
       .join('rect')
+
       .attr('x', (sequence) => {
-        const xValue = sequence.data.daysAgo.toString();
-        console.log(sequence.data) // Convert to string
+        const xValue = sequence.data.language.toString();
         const xPosition = xScale(xValue);
+        console.log(sequence.data)
         return xPosition !== undefined ? xPosition : 0; // Provide a default value if undefined
       })
+
 .attr('width', xScale.bandwidth() / 2)
       .attr('y', (sequence) => yScale(sequence[1]))
       .attr('height', (sequence) => yScale(sequence[0]) - yScale(sequence[1]));
