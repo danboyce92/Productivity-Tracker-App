@@ -4,7 +4,7 @@ import { deleteRecord } from '../api/deleteRecord';
 
 import LatestActivities from './LatestActivities';
 import Display from './Display/Display';
-import { BarData, organiseBarData } from './BarDataHandling';
+import { BarData, organiseBarData } from './Display/BarDataHandling';
 // import { getRecordsP1, getRecordsP2, getRecordsP3, getRecordsP4, getRecordsP5, getRecordsP6, getRecordsP7 } from '../api/getRecordsP1';
 // import { StackedData, getLast7DaysDates, searchIndivDay } from './StackedDataHandling';
 

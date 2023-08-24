@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import DonutWrapper from './DonutWrapper';
 import { Record } from '../Activities';
-import BarWrapper from '../BarWrapper';
-import { BarData } from '../BarDataHandling';
+import BarWrapper from './BarWrapper';
+import { BarData } from './BarDataHandling';
+import PercentageComponent from './PercentageComponent';
 
 
 export interface DProps {
@@ -30,9 +31,8 @@ const Display: React.FC<DProps> = ({ records, barData }) => {
 
   return (
     <div id="display-container">
-      <div id="percent-disp">Percentage display</div>
+      <div id="percent-disp"><PercentageComponent /></div>
       <div id="donut-disp"><DonutWrapper records={thisWeekRecords} /></div>
-      {/* <div id="bar-disp"><StackedWrapper stackedD={stackedD} /></div> */}
       <div id="bar-disp"><BarWrapper barData={barData} /></div>
     </div>
   )
