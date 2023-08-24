@@ -1,64 +1,64 @@
 import { Record } from "./Activities";
 
-export interface StackedData {
-  daysAgo: number,
-  programming: number;
-  music: number;
-  language: number;
-  exercise: number;
-}
+// export interface StackedData {
+//   daysAgo: number,
+//   programming: number;
+//   music: number;
+//   language: number;
+//   exercise: number;
+// }
 
 
 
-export function getLast7DaysDates(): string[] {
+// export function getLast7DaysDates(): string[] {
 
-  const datesArray: string[] = [];
+//   const datesArray: string[] = [];
 
-  for (let i = 1; i <= 7; i++) {
-    const currentDate = new Date();
-    currentDate.setDate(currentDate.getDate() - i);
+//   for (let i = 1; i <= 7; i++) {
+//     const currentDate = new Date();
+//     currentDate.setDate(currentDate.getDate() - i);
 
-    const options: Intl.DateTimeFormatOptions = { day: '2-digit', month: 'short' };
-    const formattedDate = currentDate.toLocaleDateString('en-US', options);
+//     const options: Intl.DateTimeFormatOptions = { day: '2-digit', month: 'short' };
+//     const formattedDate = currentDate.toLocaleDateString('en-US', options);
 
-    datesArray.unshift(formattedDate);
-  }
+//     datesArray.unshift(formattedDate);
+//   }
 
-  return datesArray;
-}
+//   return datesArray;
+// }
 
- getLast7DaysDates();
+//  getLast7DaysDates();
 
-  export const searchIndivDay = (day: Record[], date: number) => {
-    //This function should return an object that has calculated the total duration of each category
+  // export const searchIndivDay = (day: Record[], date: number) => {
+  //   //This function should return an object that has calculated the total duration of each category
     
-    let dayObject: StackedData = {
-      // day: date,
-      daysAgo: date || 0,
-      programming: 0,
-      music: 0,
-      language: 0,
-      exercise: 0
-    }
+  //   let dayObject: StackedData = {
+  //     // day: date,
+  //     daysAgo: date || 0,
+  //     programming: 0,
+  //     music: 0,
+  //     language: 0,
+  //     exercise: 0
+  //   }
 
-    for (let record of day) {
-      if (record.category == 'Programming') {
-        dayObject.programming += record.duration;
-      }
-      if (record.category == 'Music') {
-        dayObject.music += record.duration;
-      }
-      if (record.category == 'Language') {
-        dayObject.language += record.duration;
-      }
-      if (record.category == 'Exercise') {
-        dayObject.exercise += record.duration;
-      }
-    }
+  //   for (let record of day) {
+  //     if (record.category == 'Programming') {
+  //       dayObject.programming += record.duration;
+  //     }
+  //     if (record.category == 'Music') {
+  //       dayObject.music += record.duration;
+  //     }
+  //     if (record.category == 'Language') {
+  //       dayObject.language += record.duration;
+  //     }
+  //     if (record.category == 'Exercise') {
+  //       dayObject.exercise += record.duration;
+  //     }
+  //   }
 
-    return dayObject;
+  //   return dayObject;
 
-  }
+  // }
 
 
 
