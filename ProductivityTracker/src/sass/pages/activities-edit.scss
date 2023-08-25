@@ -15,6 +15,21 @@
 
 }
 
+@media only screen and (min-width: 1001px) {
+  #small-toggle {
+    visibility: collapse;
+  }
+
+  #add-activities {
+    margin-right: 1rem;
+  }
+
+  #edit-current-activities {
+    margin-left: 1rem;
+  }
+
+}
+
 @media only screen and (min-width: 1000px) {
 
 
@@ -28,9 +43,7 @@
       margin: auto;
     }
   
-    #small-toggle {
-      visibility: collapse;
-    }
+
   
     
     #edit-container {
@@ -40,12 +53,12 @@
       margin-right: 2.5rem;
       margin-bottom: 2.5rem;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+
     
       #add-activities {
         @include grid-position(1, 2, 1, 2);
         @include internal-box();
-        margin-right: 1rem;
+
         display: grid;
         grid-template-rows: repeat(5, 1fr);
         position: relative;
@@ -57,13 +70,14 @@
           font-size: clamp(1.5em, 2em, 2.5em);
   
         }
-        // #toggle-button {
-        //   @include grid-position(1, 2, 2, 3);
-        //   margin: auto;
-        //   font-family: 'Josefin Sans', sans-serif;
-        //   font-size: clamp(1em, 1.3em, 1.5em);
-        //   display: flex;
-        // }
+        #toggle-button {
+          @include grid-position(1, 2, 2, 3);
+          margin: auto;
+          font-family: 'Josefin Sans', sans-serif;
+          font-size: clamp(1em, 1.3em, 1.5em);
+          display: flex;
+
+        }
         #name-input {
           @include grid-position(1, 2, 2, 3);
           margin: 3rem 3rem;
@@ -130,7 +144,7 @@
         @include grid-position(2, 3, 1, 2);
         @include internal-box();
         border-radius: 1rem;
-        margin-left: 1rem;
+
         display: grid;
         grid-template-rows: repeat(5, 1fr);
         overflow-y: hidden;
@@ -241,22 +255,26 @@
         grid-template-rows: repeat(5, 1fr);
         position: relative;
         font-family: 'Josefin Sans', sans-serif;
+
   
         #add-edit-title {
           @include grid-position(1, 2, 1, 2);
           margin: auto;
 
-          font-size: clamp(1.5em, 1.6em, 2.5em);
+          font-size: clamp(1rem, 5vw, 1.8rem);
   
         }
 
 
         #name-input {
           @include grid-position(1, 2, 2, 3);
-          margin: 3rem 3rem;
+          display: grid;
+
+          margin: auto;
+
           border-radius: 1rem;
           padding-left: 1rem;
-          font-size: clamp(1em, 1.3em, 1.5em);
+          font-size: clamp(1rem, 1.3rem, 1.5rem);
         }
 
         #activity-error-field-active {
@@ -273,7 +291,7 @@
 
         #category-input {
           @include grid-position(1, 2, 3, 4);
-          margin: 3rem 3rem;
+          margin: auto;
           border-radius: 1rem;
           padding-left: 1rem;
           font-size: clamp(1em, 1.3em, 1.5em);
@@ -293,7 +311,8 @@
 
         #save-button {
           @include grid-position(1, 2, 4, 5);
-          margin: 3rem 2rem;
+          margin: auto;
+          padding: .3rem 1rem;
           box-shadow: 1px 2px rgba(0, 0, 0, 0.3);
           border: 2px solid;
           border-radius: 5px;

@@ -31,27 +31,14 @@
     color: white;
   }
 
-  #disp-button {
-    @include grid-position(1, 5, 1, 2);
-    position: absolute;
-    top: 40%;
-    left: 8%;
 
-  }
-
-  #rec-button {
-    @include grid-position(1, 5, 1, 2);
-    position: absolute;
-    top: 40%;
-    right: 8%;
-
-  }
 
   #activities-display {
     @include grid-position(1, 5, 2, 8);
     @include internal-box();    
     margin-bottom: 2.5rem;
     overflow-y: scroll;
+    
     #current-activities {
       font-family: 'Indie Flower', cursive;
       font-size: clamp(2em, 3em, 4em);
@@ -121,6 +108,22 @@
     margin-right: 2.5rem;
     }
 
+    #disp-button {
+      @include grid-position(1, 5, 1, 2);
+      position: absolute;
+      top: 40%;
+      left: 8%;
+  
+    }
+  
+    #rec-button {
+      @include grid-position(1, 5, 1, 2);
+      position: absolute;
+      top: 40%;
+      right: 8%;
+  
+    }
+
 }
 
 
@@ -129,6 +132,23 @@
   #activities-display {
   margin-left: 0rem;
   margin-right: 0rem;
-  }
+
+}
+
+#disp-button {
+  @include grid-position(1, 5, 1, 2);
+  position: absolute;
+  top: 60%;
+  left: 28%;
+
+}
+
+#rec-button {
+  @include grid-position(1, 5, 1, 2);
+  position: absolute;
+  top: 60%;
+  left: 28%;
+
+}
 
 }
