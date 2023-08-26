@@ -9,10 +9,31 @@
   --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
 }
 
-@media only screen and (min-width: 601px) {
+.hamburger-menu {
+  visibility: collapse;
+
+  z-index: 4;
+}
+
+#nav-grid {
+  
+}
+
+#nav-bar {
+  height: 93vh;
+
+  #nav-list-item {
+    font-size: clamp(1rem, 1.5rem, 2rem);
+    line-height: 3rem;
+
+  }
+}
+
+@media only screen and (min-width: 600px) {
 
   #nav-grid {
-    
+
+
     #logo {
       font-family: 'Indie Flower', cursive;
       font-size: clamp(1.5rem, 2rem, 3rem);
@@ -23,19 +44,17 @@
       width: 20%;
       height: 5vh;
       padding-top: 1.8rem;
+      padding-left: .8rem;
     }
-    .hamburger-menu {
-      visibility: collapse;
-    }
+
   
     #nav-bar {
       position: absolute;
       width: clamp(100px, 20%, 25%);
-      height: 93vh;
       background-color: #03312E;
       color: #fff;
       z-index: 3;
-    
+      height: 93vh;
       #nav-list {
         padding: 1rem 0rem;
         margin: auto;
@@ -43,9 +62,9 @@
     
         #nav-list-item {
           font-family: 'Indie Flower', cursive;
-          font-size: clamp(1rem, 1.5rem, 2rem);
+
           text-align: center;
-          line-height: 3rem;
+
           cursor: pointer;
           margin: 1rem 0rem;
           transition: all 1s;
@@ -65,18 +84,24 @@
   #nav-grid {
     position: absolute;
     margin: 0;
-    z-index: 2;
+    z-index: 1;
     #logo {
       visibility: collapse;
+    }
+
+    #nav-bar {
+      height: auto;
+      width: fit-content;
+
     }
 
     #nav-list-item {
       padding: 1rem 0;
       text-align: center;
       font-family: 'Indie Flower', cursive;
+      font-size: clamp(1rem, 3vw, 1.5rem);
 
     }
-
   }
 
   .hamburger-menu {
@@ -90,10 +115,9 @@
       position: absolute;
       top: 2rem;
       left: 1rem;
-      z-index: 3;
+
       cursor: pointer;
     
-  
   }
 
   .hamburger-menu:has(input:checked) {
@@ -101,7 +125,7 @@
     --background: #faed5b;
   }
 
-  .hamburger-menu:has(input:focus-visible)::before,
+.hamburger-menu:has(input:focus-visible)::before,
 .hamburger-menu:has(input:focus-visible)::after,
 .hamburger-menu input:focus-visible {
   border: 1px solid var(--background);
@@ -148,15 +172,12 @@
 }
 
 .sidebar {
-  
   transition: translate var(--animation-timing);
   translate: -100%;
-  padding: 2.5rem 1rem;
+  padding: 2rem 1rem;
   padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
   background-color: rgba(3, 49, 46, .9);
   color: white;
-  max-width: 10rem;
-  
 
   border-radius: 1rem;
 }

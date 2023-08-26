@@ -16,7 +16,7 @@ const LatestActivities: React.FC<LAProps> = ({ records, deleteRecord }) => {
         <div className="card-title">{record.name}</div>
         <div onClick={() => {deleteRecord(record._id)}} className="card-del">X</div>
         <div className="card-info card-category">{record.category}</div>
-        <div className="card-info">{record.duration}</div>
+        <div className="card-info">{record.duration} hour(s)</div>
         <div className="card-info">{record.date.toString().slice(0, 10)}</div>   
       </div>
     )

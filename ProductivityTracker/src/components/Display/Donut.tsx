@@ -53,7 +53,7 @@ export default class D3 {
       .range(
         d3
           .quantize(
-            (t) => d3.interpolateSpectral(t / 2 + 0.4),
+            (t) => d3.interpolateSpectral(t  + 0.44),
             dataSet.length
           )
           .reverse()

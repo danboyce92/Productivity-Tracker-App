@@ -10,9 +10,6 @@
   display: grid;
   grid-template-rows: repeat(7, 1fr);
 
-  
-
-
 }
 
 @media only screen and (min-width: 1001px) {
@@ -93,6 +90,7 @@
           position: absolute;
           bottom: 10%;
           left: 15%;
+
         }
         #activity-error-field-inactive {
           visibility: collapse;
@@ -123,10 +121,17 @@
           @include grid-position(1, 2, 4, 5);
           margin: 3rem 2rem;
           box-shadow: 1px 2px rgba(0, 0, 0, 0.3);
-          border: 2px solid;
+          border: 2px solid black;
           border-radius: 5px;
           background-color: #CFFFB0;
           font-size: clamp(1rem, 4vw, 2rem);
+          transition: all .3s;
+        }
+
+        #save-button:hover {
+          scale: 1.05;
+          transform: translateY(-3%);
+
         }
 
         #activity-exists-error {
@@ -207,6 +212,9 @@
             position: relative;
           }
         }
+        #current-list::-webkit-scrollbar {
+          display: none;
+        }
       }
     }
   }
@@ -260,8 +268,8 @@
         #add-edit-title {
           @include grid-position(1, 2, 1, 2);
           margin: auto;
-
-          font-size: clamp(1rem, 5vw, 1.8rem);
+          padding: .5rem;
+          font-size: clamp(1rem, 6vw, 1.8rem);
   
         }
 
@@ -279,6 +287,7 @@
 
         #activity-error-field-active {
           @include grid-position(1, 2, 2, 3);
+          font-size: clamp(.9rem, 2vw, 1rem);
           color: red;
           position: absolute;
           bottom: 10%;
@@ -299,6 +308,7 @@
 
         #category-error-field-active {
           @include grid-position(1, 2, 3, 4);
+          font-size: clamp(.9rem, 3vw, 1rem);
           color: red;
           position: absolute;
           bottom: 10%;
@@ -363,7 +373,7 @@
             
           
             #item-name {
-              font-size: clamp(1.5em, 2em, 2.5em);
+              font-size: clamp(1rem, 1.5rem, 2rem);
               margin: auto;
             }
 
@@ -399,7 +409,9 @@
             position: relative;
           }
         }
-        
+        #current-list::-webkit-scrollbar {
+          display: none;
+        }
   
       }
     }
