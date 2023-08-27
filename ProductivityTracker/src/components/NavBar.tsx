@@ -44,7 +44,7 @@ const NavBar = () => {
 
   return (
     <div id="nav-grid">
-      <div id="logo">Productivity App</div>
+      <div id="logo">ZenMentum</div>
         <label className="hamburger-menu">
           <input type="checkbox" />
         </label>

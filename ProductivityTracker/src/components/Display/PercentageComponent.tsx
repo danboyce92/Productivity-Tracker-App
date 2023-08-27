@@ -54,7 +54,7 @@ const PercentageComponent: React.FC<PercentageProps> = ({ thisWeekR, lastWeekR }
   return (
     <div id="perc-component">
       <div id="text">Week-to-Week Progress</div>
-      <div className={`text-${posOrNeg}`} id="percentage">{percentage.toFixed(2)}% <br/> 
+      <div className={`text-${posOrNeg}`} id="percentage">{percentage.toFixed(2).slice(0, 2)}% <br/> 
       
       </div>
       {posOrNeg === 'green' && 
