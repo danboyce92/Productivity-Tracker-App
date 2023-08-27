@@ -7,6 +7,9 @@ interface DurationByCategory {
   [category: string]: number;
 }
 
+
+const catColors: string[] = ['#FFFF99', '#FDC086', '#BEAED4', '#7FC97F']
+
 const MARGIN = { TOP: 10, BOTTOM: 10, LEFT: 10, RIGHT: 10 };
 const width = 400 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 300 - MARGIN.TOP - MARGIN.BOTTOM;
@@ -47,17 +50,15 @@ export default class D3 {
       .sort(null)
       .value((d) => d.duration);
 
-    const color = d3
+
+
+      const colorScale = d3
       .scaleOrdinal<string>()
-      .domain(sortedDataSet.map((d) => d.name))
+      .domain(sortedDataSet.map((d) => d.category))
       .range(
-        d3
-          .quantize(
-            (t) => d3.interpolateSpectral(t  + 0.44),
-            dataSet.length
-          )
-          .reverse()
+        sortedDataSet.map((d, i) => catColors[i])
       );
+
 
     const svg: d3.Selection<SVGSVGElement, unknown, null, undefined> = d3
       .select(element)
@@ -90,7 +91,7 @@ export default class D3 {
       .data(pie(sortedDataSet))
       .join('path')
       //Used to determine sliver's color. Try by category too
-      .attr('fill', (d) => color(d.data.category))
+      .attr('fill', (d) => colorScale(d.data.category))
       .attr('d', (d: PieArcDatum<Record>) => generateArcPath(d))
       .append('title')
       .text((d) => `${d.data.name}: ${d.data.duration.toLocaleString()}`);
