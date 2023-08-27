@@ -1,5 +1,7 @@
+import { url } from "./config";
+
 export async function deleteActivity(activityId: string) {
-  await fetch(`http://localhost:7000/activities/${activityId}`, {
+  await fetch(`${url}:7000/activities/${activityId}`, {
       method: "DELETE",
   });
 }

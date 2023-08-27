@@ -1,6 +1,7 @@
+import { url } from "./config"
 
 export async function createRecord(name: string, category: string | undefined, duration: number, date: Date, timestamp: number) {
-  await fetch("http://localhost:7000/newrecord", {
+  await fetch(`${url}:7000/newrecord`, {
     method: "POST",
     body: JSON.stringify({
       name,

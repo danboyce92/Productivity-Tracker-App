@@ -1,3 +1,5 @@
+import { url } from "./config";
+
 export interface Activity {
   _id: string,
   name: string,
@@ -6,6 +8,6 @@ export interface Activity {
 }
 
 export async function getActivities() {
-  const response = await fetch("http://localhost:7000/activities")
+  const response = await fetch(`${url}:7000/activities`)
   return response.json();
 }
