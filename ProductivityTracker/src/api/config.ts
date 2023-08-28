@@ -1,3 +1,3 @@
-export const url = 'http://51.103.71.229';
+export const url = 'http://zenmentum.co';
 
 // :7000/activities
