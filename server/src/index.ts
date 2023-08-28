@@ -36,49 +36,7 @@ app.get('/records', async (req: Request, res: Response, next: NextFunction) => {
   next();
 })
 
-const now = Date.now();
 
-app.get('/records/prev1', async (req: Request, res: Response, next: NextFunction) => {
-  const records = await Record.find({ timestamp: { $gt: now - (86400000 * 2), $lt: now - 86400000} });
-  res.json(records);
-  next();
-})
-
-app.get('/records/prev2', async (req: Request, res: Response, next: NextFunction) => {
-  const records = await Record.find({ timestamp: { $gt: now - (86400000 * 3), $lt: now - (86400000 * 2)} });
-  res.json(records);
-  next();
-})
-
-app.get('/records/prev3', async (req: Request, res: Response, next: NextFunction) => {
-  const records = await Record.find({ timestamp: { $gt: now - (86400000 * 4), $lt: now - (86400000 * 3)} });
-  res.json(records);
-  next();
-})
-
-app.get('/records/prev4', async (req: Request, res: Response, next: NextFunction) => {
-  const records = await Record.find({ timestamp: { $gt: now - (86400000 * 5), $lt: now - (86400000 * 4)} });
-  res.json(records);
-  next();
-})
-
-app.get('/records/prev5', async (req: Request, res: Response, next: NextFunction) => {
-  const records = await Record.find({ timestamp: { $gt: now - (86400000 * 6), $lt: now - (86400000 * 5)} });
-  res.json(records);
-  next();
-})
-
-app.get('/records/prev6', async (req: Request, res: Response, next: NextFunction) => {
-  const records = await Record.find({ timestamp: { $gt: now - (86400000 * 7), $lt: now - (86400000 * 6)} });
-  res.json(records);
-  next();
-})
-
-app.get('/records/prev7', async (req: Request, res: Response, next: NextFunction) => {
-  const records = await Record.find({ timestamp: { $gt: now - (86400000 * 8), $lt: now - (86400000 * 7)} });
-  res.json(records);
-  next();
-})
 
 
 //In my request from front end. Object with name and category keys must be used
