@@ -74,7 +74,7 @@ app.delete('/records/:recordId', async (req: Request, res: Response) => {
 })
 
 
-mongoose.connect(process.env.MONGO_URL!)
+mongoose.connect(process.env.MONGODB_URI!)
   .then(() => {
     console.log(`Listening on port ${port}`);
     app.listen(port);
