@@ -1,3 +1,3 @@
-export const url = 'http://localhost';
+export const url = 'http://zenmentum.co';
 
 // :7000/activities
