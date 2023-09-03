@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "build": "tsc",
+    "vercel-build": "echo hello",
     "start": "node build/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --watch \"src/**\" --ext \"ts,json\" --exec \"ts-node src/index.ts\""

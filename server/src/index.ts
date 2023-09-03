@@ -80,3 +80,6 @@ mongoose.connect(process.env.MONGODB_URI!)
     app.listen(port);
   })
 
+
+  export default app;
+
