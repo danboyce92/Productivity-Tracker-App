@@ -1,0 +1,26 @@
+{
+  "name": "productivity-tracker",
+  "version": "1.0.0",
+  "description": "_This app keeps a log of your daily activities so you can keep track of your productivity levels_",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install-server": "cd server && npm install && npm run build",
+    "start-server": "cd server && node build/index.js",
+    "install-client": "cd ProductivityTracker && npm install",
+    "build-client": "cd ProductivityTracker && npm run buildIt",
+    "start-client": "cd ProductivityTracker && npm run dev"
+  
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danboyce92/Productivity-Tracker-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danboyce92/Productivity-Tracker-App/issues"
+  },
+  "homepage": "https://github.com/danboyce92/Productivity-Tracker-App#readme"
+}
