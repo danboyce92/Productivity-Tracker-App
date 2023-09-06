@@ -8,6 +8,6 @@ export interface Activity {
 }
 
 export async function getActivities() {
-  const response = await fetch(`${url}:7000/activities`)
+  const response = await fetch(`${url}/activities`)
   return response.json();
 }
