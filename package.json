@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "install-server": "cd server && npm install && npm run build",
-    "start-server": "cd server && node build/index.js",
+    "start-server": "cd server && pm2 start build/index.js",
     "install-client": "cd ProductivityTracker && npm install",
     "build-client": "cd ProductivityTracker && npm run buildIt",
     "start-client": "cd ProductivityTracker && npm run dev"
