@@ -53,7 +53,7 @@
       width: clamp(100px, 20%, 25%);
       background-color: #03312E;
       color: #fff;
-      z-index: 3;
+      z-index: 4;
       height: 93vh;
       #nav-list {
         padding: 1rem 0rem;
@@ -178,7 +178,7 @@
   padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
   background-color: rgba(3, 49, 46, .9);
   color: white;
-
+  z-index: 4;
   border-radius: 1rem;
 }
 

@@ -263,7 +263,7 @@
         grid-template-rows: repeat(5, 1fr);
         position: relative;
         font-family: 'Josefin Sans', sans-serif;
-
+        z-index: 0;
   
         #add-edit-title {
           @include grid-position(1, 2, 1, 2);
@@ -347,7 +347,7 @@
         display: grid;
         grid-template-rows: repeat(5, 1fr);
         overflow-y: hidden;
-        z-index: 2;
+        z-index: 0;
         font-family: 'Josefin Sans', sans-serif;
   
         #edit-current-title {
