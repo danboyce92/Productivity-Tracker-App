@@ -50,16 +50,17 @@
       margin-right: 2.5rem;
       margin-bottom: 2.5rem;
       display: grid;
-
+      height: 50vh;
     
       #add-activities {
         @include grid-position(1, 2, 1, 2);
         @include internal-box();
 
         display: grid;
-        grid-template-rows: repeat(5, 1fr);
+        grid-template-rows: repeat(4, 1fr);
         position: relative;
-  
+
+
         #add-edit-title {
           @include grid-position(1, 2, 1, 2);
           margin: auto;
@@ -149,7 +150,7 @@
         @include grid-position(2, 3, 1, 2);
         @include internal-box();
         border-radius: 1rem;
-
+        height: 60vh;
         display: grid;
         grid-template-rows: repeat(5, 1fr);
         overflow-y: hidden;
@@ -229,6 +230,7 @@
 
   #activities-edit {
 
+    overflow: hidden;
   
     #activities-edit-title {
       @include grid-position(1, 2, 1, 2);
@@ -260,10 +262,11 @@
         @include grid-position(1, 2, 1, 2);
         @include internal-box();
         display: grid;
-        grid-template-rows: repeat(5, 1fr);
+        grid-template-rows: repeat(4, 1fr);
         position: relative;
         font-family: 'Josefin Sans', sans-serif;
         z-index: 0;
+        height: 60vh;
   
         #add-edit-title {
           @include grid-position(1, 2, 1, 2);
@@ -346,6 +349,7 @@
         border-radius: 1rem;
         display: grid;
         grid-template-rows: repeat(5, 1fr);
+        height: 60vh;
         overflow-y: hidden;
         z-index: 0;
         font-family: 'Josefin Sans', sans-serif;

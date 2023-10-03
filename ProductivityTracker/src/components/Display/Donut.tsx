@@ -74,7 +74,8 @@ export default class D3 {
       .attr('y', 0)
       .attr('text-anchor', 'middle')
       .text('This week')
-      .attr('id', 'center-text');
+      .attr('id', 'center-text')
+      .attr('fill', 'white');
 
       svg
       .append('text')
@@ -82,7 +83,8 @@ export default class D3 {
       .attr('y', 30)
       .attr('text-anchor', 'middle')
       .text(`Total Time: ${totalDurationAllActivities} Hours`)
-      .attr('id', 'center-text');
+      .attr('id', 'center-text')
+      .attr('fill', 'white');
 
 
     svg
